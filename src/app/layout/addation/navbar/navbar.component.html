@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container">
+    <a class="navbar-brand" routerLink="home">
+      <img src="../../../../assets/imgs/freshcart-logo.svg" alt="" />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav mx-auto">
+        @if(isLogin){
+        <a
+          class="nav-link active"
+          routerActiveLink="text-white"
+          routerLink="home"
+          >Home</a
+        >
+        <a class="nav-link" routerLink="cart">Carts</a>
+        <a class="nav-link" routerLink="products">Products</a>
+        <a class="nav-link" routerLink="categries">Categries</a>
+        <a class="nav-link" routerLink="brands">Brands</a>
+        }
+      </div>
+      <div class="d-flex gap-4 align-items-center">
+        <a routerLink="https://www.facebook.com"
+          ><i class="fa-brands fa-facebook fs-5"></i
+        ></a>
+        <a routerLink="https://www.twitter.com"
+          ><i class="fa-brands fa-twitter fs-5"></i
+        ></a>
+        <a routerLink="https://www.instagram.com"
+          ><i class="fa-brands fa-instagram fs-5"></i
+        ></a>
+        <a routerLink="https://www.linkedin.com"
+          ><i class="fa-brands fa-linkedin fs-5"></i
+        ></a>
+
+       @if (!isLogin) {
+        <a class="nav-link" routerLink="login">Login</a>
+        <a class="nav-link" routerLink="register">Rigister</a>
+       }
+        
+        @if(isLogin){
+          <a class="nav-link">Logout</a>
+        }
+      </div>
+    </div>
+  </div>
+</nav>

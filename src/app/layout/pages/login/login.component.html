@@ -1,0 +1,40 @@
+<div class="w-75 mx-auto my-5">
+   <form  [formGroup]="loginform" (ngSubmit)="loginSubmit()">
+    <div>
+        <label>Email:-</label>
+        <input formControlName = "email" class="form-control">
+        @if(loginform.get("email")?.errors && loginform.get("email")?.touched){
+            <div class="alert alert-danger">
+                @if(loginform.get("email")?.errors?.['required']){
+                    <p>Email Is Requried</p>
+                }@else if (loginform.get("email")?.errors?.['email']) {
+                    <P>Email Must Be Valid</P>
+                }
+            </div>
+        }
+    </div>
+    <div class="my-3">
+        <label>Password:-</label>
+        <input formControlName = "password" class="form-control">
+        @if(loginform.get("password")?.errors && loginform.get("password")?.touched){
+            <div class="alert alert-danger">
+                @if(loginform.get("password")?.errors?.['required']){
+                    <p>Password is Required</p>
+                }@else if (loginform.get('password')?.errors?.['pattern']) {
+                <p>Enter Valid Password</p>
+                }
+            </div>
+        }
+    </div>
+    @if(ErrMsg){
+        <h4 class="alert alert-danger">{{ErrMsg}}</h4>
+    }
+    <button [disabled]="loginform.invalid" type="submit" class="btn bg-main d-block text-white ms-auto">
+        @if(isLoading){
+            <i class="fa-solid fa-spin fa-spinner"></i>
+        }@else {
+            Login
+        }
+    </button>
+   </form>
+</div>
